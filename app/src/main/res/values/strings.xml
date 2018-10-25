@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Hy1024</string>
+    <string-array name="matthew">
+        <item>陆逊</item>
+        <item>陆逊1</item>
+        <item>陆逊2</item>
+        <item>陆逊3</item>
+        <item>陆逊4</item>
+        <item>陆逊5</item>
+    </string-array>
 </resources>
