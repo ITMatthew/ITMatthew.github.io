@@ -31,3 +31,15 @@
 -keepclasseswithmembernames class * {
     @butterknife.* <methods>;
 }
+#友盟统计
+-keep class com.umeng.** {*;}
+-keepclassmembers class * {
+   public <init> (org.json.JSONObject);
+}
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+-keep public class [matthew.hy.com].R$*{
+public static final int *;
+}
