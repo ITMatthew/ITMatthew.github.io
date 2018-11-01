@@ -39,8 +39,22 @@
         android:id="@+id/iv_matthew"
         android:layout_width="50dp"
         android:layout_height="50dp" />
-    <TextView
-        android:id="@+id/tv_matthew_https"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <matthew.hy.com.baseview.NavitationLayout
+            android:id="@+id/nf_matthew_bar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#ffffff"/>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_matthew"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/bar">
+
+        </android.support.v4.view.ViewPager>
+    </LinearLayout>
 </LinearLayout>

@@ -3,12 +3,17 @@ package matthew.hy.com;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindArray;
@@ -20,6 +25,9 @@ import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
+import matthew.hy.com.adapter.ViewPagerAdapter;
+import matthew.hy.com.baseview.NavitationFollowScrollLayout;
+import matthew.hy.com.baseview.NavitationLayout;
 import matthew.hy.com.utils.AppUtils;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -46,9 +54,17 @@ public class MainActivity extends BaseActivity {
     ImageView imageView;
     @BindColor(R.color.colorAccent)
     int color;
-    @BindView(R.id.tv_matthew_https)
-    TextView tvMatthewHttps;
+    @BindView(R.id.nf_matthew_bar)
+    NavitationLayout nfMatthewBar;
+    @BindView(R.id.vp_matthew)
+    ViewPager vpMatthew;
 
+
+    private String[] titles = new String[]{"全部", "待付款", "代发货","待收货"};
+
+
+    private ArrayList<Fragment> fragments2;
+    private ViewPagerAdapter viewPagerAdapter2;
 
     @Override
     protected int getViewId() {
@@ -63,6 +79,43 @@ public class MainActivity extends BaseActivity {
         buttonList.get(2).setText(matthew[3]);
         imageView.setImageBitmap(ic_launcher);
         buttonList.get(0).setBackgroundColor(color);
+
+        fragments2 =  new ArrayList<>();
+        fragments2.add(new Fragment1());
+        fragments2.add(new Fragment1());
+        fragments2.add(new Fragment1());
+        fragments2.add(new Fragment1());
+        viewPagerAdapter2 = new ViewPagerAdapter(getSupportFragmentManager(), fragments2);
+        vpMatthew.setAdapter(viewPagerAdapter2);
+        nfMatthewBar.setViewPager(this, titles, vpMatthew, R.color.color_333333, R.color.color_bar_text, 12, 12, 0, 30, true);
+        nfMatthewBar.setBgLine(this, 0, R.color.colorAccent);
+        nfMatthewBar.setNavLine(this, 2, R.color.color_bar_text, 0);
+
+
+        nfMatthewBar.setOnTitleClickListener(new NavitationLayout.OnTitleClickListener() {
+            @Override
+            public void onTitleClick(View v) {
+                Toast.makeText(MainActivity.this, ((TextView)v).getText(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        nfMatthewBar.setOnNaPageChangeListener(new NavitationLayout.OnNaPageChangeListener() {
+
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
     @Override
@@ -110,7 +163,7 @@ public class MainActivity extends BaseActivity {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                tvMatthewHttps.setText(result);
+
                             }
                         });
                     }
@@ -125,8 +178,8 @@ public class MainActivity extends BaseActivity {
         OkHttpClient okHttpClient = new OkHttpClient();
         FormBody.Builder builder = new FormBody.Builder();
         builder.add("", "");
-        RequestBody  requestBody = builder.build();
-        Request  request = new Request.Builder().post(requestBody).url(url).build();
+        RequestBody requestBody = builder.build();
+        Request request = new Request.Builder().post(requestBody).url(url).build();
         Call call = okHttpClient.newCall(request);
         call.enqueue(new Callback() {
             @Override
