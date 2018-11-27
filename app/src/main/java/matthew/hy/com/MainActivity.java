@@ -28,6 +28,7 @@ import butterknife.OnLongClick;
 import matthew.hy.com.adapter.ViewPagerAdapter;
 import matthew.hy.com.baseview.NavitationFollowScrollLayout;
 import matthew.hy.com.baseview.NavitationLayout;
+import matthew.hy.com.fragment.FgShopingCart;
 import matthew.hy.com.utils.AppUtils;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -81,7 +82,7 @@ public class MainActivity extends BaseActivity {
         buttonList.get(0).setBackgroundColor(color);
 
         fragments2 =  new ArrayList<>();
-        fragments2.add(new Fragment1());
+        fragments2.add(new FgShopingCart());
         fragments2.add(new Fragment1());
         fragments2.add(new Fragment1());
         fragments2.add(new Fragment1());
@@ -100,7 +101,6 @@ public class MainActivity extends BaseActivity {
         });
 
         nfMatthewBar.setOnNaPageChangeListener(new NavitationLayout.OnNaPageChangeListener() {
-
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
