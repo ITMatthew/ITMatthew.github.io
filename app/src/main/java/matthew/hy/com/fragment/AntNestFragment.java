@@ -23,7 +23,7 @@ public abstract class AntNestFragment extends AntBaseFragment implements AntView
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //初始化视图
-        if (mFrameLayout != null) mFrameLayout = installFrameLayout();
+        if (mFrameLayout == null) mFrameLayout = installFrameLayout();
         //初始化AnViewManage
         mAntViewManager = initialiseAntViewMainager();
         //初始化AntDataManage

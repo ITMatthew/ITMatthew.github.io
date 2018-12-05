@@ -5,33 +5,6 @@
     android:layout_height="wrap_content"
     android:background="@android:color/white">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_alignParentTop="true"
-        android:background="#ccc" />
-
-    <CheckBox
-        android:id="@+id/id_cb_select_all"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="10dp"
-        android:background="@null"
-        android:button="@drawable/selector_check_bg"
-        android:text=" 全选" />
-
-    <!-- <TextView
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_centerVertical="true"
-         android:layout_marginLeft="5dp"
-         android:layout_toRightOf="@+id/ivSelectAll"
-         android:text="全选"
-         android:textColor="#003333"
-         android:textSize="13sp"/>-->
-
-
     <LinearLayout
         android:id="@+id/id_ll_normal_all_state"
         android:layout_width="wrap_content"
@@ -39,34 +12,6 @@
         android:layout_alignParentRight="true"
         android:orientation="horizontal"
         android:visibility="visible">
-
-        <!--<LinearLayout-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:orientation="vertical">-->
-
-        <!--<TextView-->
-        <!--android:id="@+id/id_tv_totalPrice"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!---->
-        <!--android:text="合计"-->
-        <!--android:textColor="#ff2600"-->
-        <!--android:textSize="13sp"/>-->
-
-        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
-        <!--&lt;!&ndash;android:id="@+id/tvPostPrice"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:layout_marginBottom="5dp"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:layout_marginRight="5dp"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:layout_marginTop="5dp"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:gravity="right"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:text="不含运费"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:textColor="#666666"&ndash;&gt;-->
-        <!--&lt;!&ndash;android:textSize="11sp"/>&ndash;&gt;-->
-
-        <!--</LinearLayout>-->
         <TextView
             android:id="@+id/id_tv_totalPrice"
             android:layout_width="wrap_content"
@@ -90,41 +35,5 @@
             android:textSize="16dp" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/id_ll_editing_all_state"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:orientation="horizontal"
-        android:visibility="gone">
 
-        <TextView
-            android:id="@+id/id_tv_save_star_all"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:background="@android:color/holo_orange_light"
-            android:gravity="center_vertical"
-            android:paddingBottom="15dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:paddingTop="15dp"
-            android:text="移到收藏夹"
-            android:textSize="16dp" />
-
-        <TextView
-            android:id="@+id/id_tv_delete_all"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:background="#ff5000"
-            android:gravity="center_vertical"
-            android:paddingBottom="15dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:paddingTop="15dp"
-            android:text="删除"
-
-            android:textSize="16dp" />
-    </LinearLayout>
 </RelativeLayout>

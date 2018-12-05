@@ -1,4 +1,4 @@
-package matthew.hy.com.baseview;
+package matthew.hy.com;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,27 +11,34 @@ import android.view.ViewGroup;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+/**
+ * author : Heyang
+ * e-mail : 15258836173@163.com
+ * date   : 2018/12/511:58
+ * desc   :
+ * version: 1.0
+ */
 public abstract class BaseFragment extends Fragment {
-    private Unbinder unBind;
+    private Unbinder binder;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(getFragmentLayoutId(), container, false);
-        unBind = ButterKnife.bind(this, view);
-        initFragementData();
+        View view = inflater.inflate(initFgId(), container, false);
+        binder = ButterKnife.bind(getActivity());
+        initViewFg(view);
         return view;
     }
 
-    public abstract int getFragmentLayoutId();
 
-    public abstract void initFragementData();
+    protected abstract int initFgId();
+
+    protected abstract void initViewFg(View view);
 
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        if (unBind != null) {
-            unBind.unbind();
-        }
+    public void onDestroy() {
+        super.onDestroy();
+        if (binder != null)
+            binder.unbind();
     }
 }

@@ -40,7 +40,9 @@ dependencies {
 //如果支持 GIF 图需要导包，注意后面的版本号
     api 'com.facebook.fresco:animated-gif:0.12.0'
 
-
+    //1.1.0 API改动过大，老用户升级需谨慎   刷新
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-16'
+    api 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-16'//没有使用特殊Header，可以不加这行
 
 
 }

@@ -12,7 +12,7 @@
        />
 
     <ExpandableListView
-        android:id="@+id/id_elv_listview"
+        android:id="@+id/exl_shop_cart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:cacheColorHint="#00000000"
